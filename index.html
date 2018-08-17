@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthpanel</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+
+    </script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="js/_charts.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="nav">
+        <a class="nav-link active" href="#">Active</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </nav>
+    <div class="container">
+        <div class="row mt-4" id="stats">
+            <div class="col">
+                <div class="row m-4">
+                    <div class="col-2">
+                        <img id="profil" src="img/michi.jpg"/>
+                    </div>
+                    <div class="col">
+                        <p id="name">Michael Gallagher</p>
+                        <p id="team">Geschäftsführung</p>
+                    </div>
+                    <div class="col">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100">Level 7</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-4" id="activityfeed">
+            <ul class="p-4">
+                <li class="d-flex flex-row">
+                    <i class="icon text-center pt-3 fas fa-newspaper"></i>
+                    <div class="panel">
+                        <div class="panel-header">Dummy item</div>
+                        <div class="timestamp"><i class="far fa-clock"></i><span>15 minutes ago</span></div>
+                        <div class="panel-body"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam architecto, at dolor earum fuga incidunt iste, minima, mollitia officiis omnis quaerat quo quod reiciendis reprehenderit sint tempore!</span></div>
+                    </div>
+                </li>
+                <li class="d-flex flex-row">
+                    <i class="icon text-center pt-3 fas fa-newspaper"></i>
+                    <div class="panel">
+                        <div class="panel-header">Dummy item</div>
+                        <div class="timestamp"><i class="far fa-clock"></i><span>15 minutes ago</span></div>
+                        <div class="panel-body"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam architecto, at dolor earum fuga incidunt iste, minima, mollitia officiis omnis quaerat quo quod reiciendis reprehenderit sint tempore!</span></div>
+                    </div>
+                </li>
+                <li class="d-flex flex-row">
+                    <i class="icon text-center pt-3 fas fa-newspaper"></i>
+                    <div class="panel">
+                        <div class="panel-header">Dummy item</div>
+                        <div class="timestamp"><i class="far fa-clock"></i><span>15 minutes ago</span></div>
+                        <div class="panel-body"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium animi aperiam architecto, at dolor earum fuga incidunt iste, minima, mollitia officiis omnis quaerat quo quod reiciendis reprehenderit sint tempore!</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row mt-4">
+            <div class="col p-4 mr-4" id="progress-widget">
+                <div class="row">
+                    <div class="col">
+                        <div class="row h-50">
+                            <div class="col border-right border-dark border-bottom">
+                                <div class="row h-50">
+                                    <i class="fa-3x fas fa-chart-line"></i>
+                                </div>
+                                <div class="row h-50">
+                                    <i class="fa-2x fas fa-arrow-down"></i><h2>4%</h2>
+                                </div>
+                            </div>
+                            <div class="col border-dark border-bottom">
+                                <div class="row h-50">
+                                    <h2>XXY</h2>
+                                </div>
+                                <div class="row h-50">
+                                    <i class="fa-2x fas fa-arrow-down"></i><h2>4%</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row h-50">
+                            <div class="col border-right border-dark">
+                                <div class="row h-50">
+                                    <i class="fa-3x fas fa-chart-line"></i>
+                                </div>
+                                <div class="row h-50">
+                                    <i class="fa-2x fas fa-arrow-up"></i><h2>4%</h2>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row h-50">
+                                    <h2>XYZ</h2>
+                                </div>
+                                <div class="row h-50">
+                                    <i class="fa-2x fas fa-arrow-down"></i><h2>4%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <canvas id="progress-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 p-4" id="leaderboard">
+                <h2>Leaderboard</h2>
+                <ul>
+                    <li class="row mb-1">
+                        <div class="col-4">
+                            <img src="img/michi.jpg"/>
+                        </div>
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="1000" aria-valuemin="0" aria-valuemax="100">Level 7</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="row mb-1">
+                        <div class="col-4">
+                            <img src="img/sebastian.jpg"/>
+                        </div>
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Level 4</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="row mb-1">
+                        <div class="col-4">
+                            <img src="img/jack.jpg"/>
+                        </div>
+                        <div class="col">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Level 1</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
