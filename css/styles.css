@@ -20,7 +20,9 @@ nav {
       margin: 0 auto; }
 
 #activityfeed {
-  background: #ffffff; }
+  background: #ffffff;
+  overflow: auto;
+  height: 300px; }
   #activityfeed ul {
     width: 100%;
     margin: 0; }
