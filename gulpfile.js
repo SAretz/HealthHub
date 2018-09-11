@@ -74,6 +74,7 @@ gulp.task("copy-assets", function () {
             "./node_modules/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-il-chicago-mill-en.js",
             "./node_modules/admin-resources/jquery.vectormap/maps/jquery-jvectormap-in-mill-en.js",
             "./node_modules/dragula/dist/dragula.min.js",
+            "./node_modules/apexcharts/dist/apexcharts.min.js",
             "./node_modules/dropzone/dist/min/dropzone.min.js"
         ],
         css: [
@@ -221,6 +222,7 @@ gulp.task("javascript", function () {
             folder.src + "js/pages/demo.vector-maps.js",
             folder.src + "js/pages/demo.profile.js",
             folder.src + "js/pages/demo.toastr.js",
+            folder.src + "js/pages/demo.apex-radialbar.js",
             folder.src + "js/pages/demo.project-detail.js"
         ]
     };
