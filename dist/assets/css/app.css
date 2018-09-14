@@ -10134,3 +10134,6 @@ div.dt-button-info {
   background-color: #fa5c7c;
   color: #fff;
   border-color: #fa5c7c; }
+
+.table th {
+  border-top: none; }

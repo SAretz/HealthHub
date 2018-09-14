@@ -1,0 +1,23 @@
+@@include('../../shared/nav.html')
+<div class="wrapper">
+    <div class="content-page">
+        <div class="content">
+            <div class="container-fluid mt-3">
+                <div class="row" ng-repeat="article in articles track by $index" ng-if="$index % 5 == 0">
+                    <div class="col" ng-repeat="i in [$index, $index+1, $index+2, $index+3, $index+4]" ng-if="articles[i] != null">
+                        <div class="card">
+                            <img class="card-img-top" src="http://localhost:8080/{{articles[i].image}}">
+                            <div class="card-body">
+                                <h4 class="card-title">{{articles[i].name}} </h4>
+                                <p class="card-text">{{articles[i].description}}</p>
+                                <button class="btn btn-primary">1000 Points</button>
+                                <button class="btn btn-primary">15 €</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

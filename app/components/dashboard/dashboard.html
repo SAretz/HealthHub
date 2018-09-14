@@ -1,10 +1,11 @@
+@@include('../../shared/nav.html')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
 
             <!-- Start Profile -->
             <div class="row mt-2">
-                    <!-- Profile -->
+                <!-- Profile -->
                 <div class="col">
                     <div class="card bg-secondary w-100">
                         <div class="card-body profile-user-box">
@@ -15,7 +16,7 @@
                                         <span class="float-left m-2 mr-4"><img src="assets/images/michi.jpg" style="height: 100px;" alt="" class="rounded-circle img-thumbnail"></span>
                                         <div class="media-body">
 
-                                            <h4 class="mt-1 mb-1 text-white">Michael Gallagher</h4>
+                                            <h4 class="mt-1 mb-1 text-white">Sebastian Aretz</h4>
                                             <p class="font-13 text-white-50"> CEO & Founder</p>
 
                                             <ul class="mb-0 list-inline text-light">
@@ -88,7 +89,7 @@
             <div class="row">
 
                 <!-- Start Chart -->
-                <div class="col">
+                <div class="col d-flex">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Progress</h4>
@@ -119,7 +120,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row mt-2">
                                         <div class="col">
                                             <div class="float-right">
                                                 <i class="mdi mdi-currency-usd widget-icon"></i>
@@ -147,8 +148,8 @@
                                 </div>
                                 <div class="col-6">
 
-                                    <div class="chartjs-chart" style="height: 320px;">
-                                        <canvas id="radar-chart-example"></canvas>
+                                    <div class="text-center">
+                                        <div id="circle-angle-radial" class="apex-charts"></div>
                                     </div>
                                 </div>
                             </div>
@@ -157,8 +158,9 @@
                 </div>
                 <!-- end Chart -->
 
-                <div class="col">
-                    <div class="card">
+                <!-- Start Achievement -->
+                <div class="col d-flex">
+                    <div class="card w-100">
                         <div class="card-body">
                             <h4 class="card-title">Achievement</h4>
                             <div class="table-responsive-sm">
@@ -179,19 +181,19 @@
                                         <td><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="500 EXP !">Einlösen</button></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="badge badge-primary mr-1">OW</span>Office Warrior</td>
+                                        <td><span class="badge badge-danger mr-1">OW</span>Office Warrior</td>
                                         <td>25 Workouts</td>
                                         <td><span class="badge badge-primary">43%</span></td>
                                         <td><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="500 EXP !">Einlösen</button></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="badge badge-primary mr-1">MO</span>Mönch</td>
+                                        <td><span class="badge badge-warning mr-1">MO</span>Mönch</td>
                                         <td>15 Meditationen</td>
                                         <td><span class="badge badge-primary">65%</span></td>
                                         <td><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="500 EXP !">Einlösen</button></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="badge badge-primary mr-1">LR</span>Leseratte</td>
+                                        <td><span class="badge badge-success mr-1">LR</span>Leseratte</td>
                                         <td>20 Artikel</td>
                                         <td><span class="badge badge-primary">10%</span></td>
                                         <td><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="500 EXP !">Einlösen</button></td>
@@ -202,6 +204,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- end Achievement -->
 
             </div>
             <!-- end User Progress-->
@@ -224,96 +227,138 @@
                 </div>
                 <div class="col d-flex">
                     <div class="card">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/F5jETjRhQlU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="header-title">Workout of the Day</h4>
-                        <!-- 16:9 aspect ratio -->
-
-                        <p class="card-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dignissimos exercitationem impedit vitae! Aspernatur cum cupiditate debitis dolore dolorem est, et incidunt itaque labore obcaecati odit praesentium quos reiciendis similique?</span><span>Dolor labore, laborum magni molestias natus provident quam! Accusamus at dolore eligendi facilis impedit maiores necessitatibus, nisi odio omnis perspiciatis quidem repellat, rerum sed sit, tempore totam unde. Placeat, sit.</span></p>
-                        <div class="progress border">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">230 Points</div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/F5jETjRhQlU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
-                        <a href="#" class=" mt-2 btn btn-outline-primary btn-rounded float-right">Weiter schauen</a>
+                        <div class="card-body">
+                            <h4 class="header-title">Workout of the Day</h4>
+                            <!-- 16:9 aspect ratio -->
+
+                            <p class="card-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dignissimos exercitationem impedit vitae! Aspernatur cum cupiditate debitis dolore dolorem est, et incidunt itaque labore obcaecati odit praesentium quos reiciendis similique?</span><span>Dolor labore, laborum magni molestias natus provident quam! Accusamus at dolore eligendi facilis impedit maiores necessitatibus, nisi odio omnis perspiciatis quidem repellat, rerum sed sit, tempore totam unde. Placeat, sit.</span></p>
+                            <div class="progress border">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">230 Points</div>
+                            </div>
+                            <a href="#" class=" mt-2 btn btn-outline-primary btn-rounded float-right">Weiter schauen</a>
+                        </div>
                     </div>
                 </div>
-                </div>
-                <div class="col d-flex">
-                    <div class="card w-100">
+                <div class="col d-flex flex-column align-items-stretch">
+                    <div class="card ">
                         <div class="card-header"><h4 class="header-title">Daily Feedback</h4></div>
                         <div class="card-body">
-                            <p>Wie geht's dir körperlich?</p>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-primary btn-rounded active">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="mdi-18px mdi mdi-emoticon"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-happy"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-neutral"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option4" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-sad"></i>
-                                </label>
-                            </div>
-                            <hr class="w-100"/>
-                            <p>Fühlst du dich in der Lage deine Aufgaben zu bewältigen?</p>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-primary btn-rounded active">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="mdi-18px mdi mdi-emoticon"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-happy"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-neutral"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option4" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-sad"></i>
-                                </label>
-                            </div>
-                            <hr class="w-100"/>
-                            <p>Fühlst du dich in der Lage deine Aufgaben in der regulären Arbeitszeit zu schaffen?</p>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-primary btn-rounded active">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="mdi-18px mdi mdi-emoticon"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-happy"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-neutral"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option4" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-sad"></i>
-                                </label>
-                            </div>
-                            <hr class="w-100"/>
-                            <p>Wie wohl fühlst du dich am Arbeitsplatz?</p>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-primary btn-rounded active">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="mdi-18px mdi mdi-emoticon"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-happy"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-neutral"></i>
-                                </label>
-                                <label class="btn btn-primary btn-rounded ">
-                                    <input type="radio" name="options" id="option4" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-sad"></i>
-                                </label>
-                            </div>
-                            <hr class="w-100"/>
-                            <div class="row">
-                                <div class="col-8">Hinweis: Dieses Feedback ist anonym und hilft uns dein Wohlbefinden zu verbessern</div>
-                                <div class="col"><button class="btn btn-primary btn-rounded float-right">Senden</button></div>
-                            </div>
+                            <form>
+                                <div id="progressbarwizard">
+                                    <ul class="nav nav-pills bg-light nav-justified form-wizard-header mb-3">
+                                        <li class="nav-item">
+                                            <a href="#koerperlich" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                                <i class="mdi mdi-account-circle mr-1"></i>
+                                                <span class="d-none d-sm-inline">Körperlich</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#bewaeltigung" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                                <i class="mdi mdi-face-profile mr-1"></i>
+                                                <span class="d-none d-sm-inline">Bewältigung</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#arbeitszeit" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                                <i class="mdi mdi-checkbox-marked-circle-outline mr-1"></i>
+                                                <span class="d-none d-sm-inline">Arbeitszeit</span>
+                                            </a>
+                                        </li>
+                                    </ul>
 
+                                    <div class="tab-content b-0 mb-0">
 
+                                        <div id="bar" class="progress mb-3" style="height: 7px;">
+                                            <div class="bar progress-bar progress-bar-striped progress-bar-animated bg-success"></div>
+                                        </div>
 
+                                        <div class="tab-pane" id="koerperlich">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>Wie geht's dir körperlich?</p>
+                                                    <div class="btn-group btn-group-toggle mb-2 d-flex " data-toggle="buttons">
+                                                        <label class="btn btn-primary btn-rounded flex-fill active">
+                                                            <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="mdi-18px mdi mdi-emoticon"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded flex-fill ">
+                                                            <input type="radio" name="options" id="option2" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-happy"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded flex-fill ">
+                                                            <input type="radio" name="options" id="option3" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-neutral"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded flex-fill ">
+                                                            <input type="radio" name="options" id="option4" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-sad"></i>
+                                                        </label>
+                                                    </div>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+                                        </div>
+
+                                        <div class="tab-pane" id="bewaeltigung">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>Fühlst du dich in der Lage deine Aufgaben zu bewältigen?</p>
+                                                    <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
+                                                        <label class="btn btn-primary btn-rounded active">
+                                                            <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="mdi-18px mdi mdi-emoticon"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded ">
+                                                            <input type="radio" name="options" id="option2" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-happy"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded ">
+                                                            <input type="radio" name="options" id="option3" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-neutral"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded ">
+                                                            <input type="radio" name="options" id="option4" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-sad"></i>
+                                                        </label>
+                                                    </div>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+                                        </div>
+
+                                        <div class="tab-pane" id="arbeitszeit">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>Fühlst du dich in der Lage deine Aufgaben in der regulären Arbeitszeit zu schaffen?</p>
+                                                    <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
+                                                        <label class="btn btn-primary btn-rounded active">
+                                                            <input type="radio" name="options" id="option1" autocomplete="off" checked> <i class="mdi-18px mdi mdi-emoticon"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded ">
+                                                            <input type="radio" name="options" id="option2" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-happy"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded ">
+                                                            <input type="radio" name="options" id="option3" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-neutral"></i>
+                                                        </label>
+                                                        <label class="btn btn-primary btn-rounded ">
+                                                            <input type="radio" name="options" id="option4" autocomplete="off"> <i class="mdi-18px mdi mdi-emoticon-sad"></i>
+                                                        </label>
+                                                    </div>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+                                        </div>
+
+                                        <ul class="list-inline mb-0 wizard">
+                                            <li class="previous list-inline-item">
+                                                <a href="javascript: void(0);" class="btn btn-info">Previous</a>
+                                            </li>
+                                            <li class="next list-inline-item float-right">
+                                                <a href="javascript: void(0);" class="btn btn-info">Next</a>
+                                            </li>
+                                        </ul>
+
+                                    </div> <!-- tab-content -->
+                                </div> <!-- end #progressbarwizard-->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card flex-grow-1">
+                        <div class="card-body">
+                            <h4 class="card-title">Some Random shit tbh idk</h4>
+                            <p class="card-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias, amet distinctio dolor dolores eligendi et, maiores maxime nemo obcaecati officia pariatur perspiciatis porro possimus provident sit, tempora tenetur velit!</span><span>Commodi doloremque eaque et fuga incidunt ipsa iste, itaque libero modi, nihil officia quae quas repellendus! Aliquid, aspernatur cum dolorem ex explicabo ipsum maiores modi molestiae neque optio quas voluptas?</span></p>
                         </div>
                     </div>
                 </div>
@@ -431,11 +476,6 @@
                 <!-- end leaderboard -->
             </div>
             <!-- end Chart &  Leaderboard -->
-
-
-
-
-
         </div>
     </div>
 </div>

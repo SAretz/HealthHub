@@ -75,7 +75,9 @@ gulp.task("copy-assets", function () {
             "./node_modules/admin-resources/jquery.vectormap/maps/jquery-jvectormap-in-mill-en.js",
             "./node_modules/dragula/dist/dragula.min.js",
             "./node_modules/apexcharts/dist/apexcharts.min.js",
-            "./node_modules/dropzone/dist/min/dropzone.min.js"
+            "./node_modules/dropzone/dist/min/dropzone.min.js",
+            "./node_modules/angular/angular.js",
+            "./node_modules/angular-route/angular-route.js"
         ],
         css: [
             "./node_modules/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css",
@@ -146,12 +148,15 @@ gulp.task("fonts", function () {
 gulp.task("html", function () {
     var out = folder.dist;
 
+    gulp.src(folder.src + "*.html").pipe(gulp.dest(folder.dist));
+
     return gulp
         .src([
-            folder.src + "html/*.html",
-            folder.src + "html/*.ico", // favicons
-            folder.src + "html/*.png"
-        ])
+            folder.src + "components/**/*.html",
+            folder.src + "components/**/**/*.html"
+        ],{
+            base: '.'
+        })
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file',
@@ -163,7 +168,9 @@ gulp.task("html", function () {
 // compile & minify sass
 gulp.task("css", function () {
     gulp
-        .src([folder.src + "/scss/icons.scss"])
+        .src([
+            folder.src + "/scss/icons.scss"
+        ])
         .pipe(sourcemaps.init())
         .pipe(sass()) // scss to css
         .pipe(
@@ -183,7 +190,9 @@ gulp.task("css", function () {
         .pipe(gulp.dest(folder.dist_assets + "css/"));
 
     return gulp
-        .src([folder.src + "/scss/app.scss"])
+        .src([
+            folder.src + "/scss/app.scss"
+        ])
         .pipe(sourcemaps.init())
         .pipe(sass()) // scss to css
         .pipe(
@@ -206,35 +215,16 @@ gulp.task("css", function () {
 // js
 gulp.task("javascript", function () {
     var out = folder.dist_assets + "js/";
-
-    //copying demo pages related assets
-    var app_pages_assets = {
-        js: [
-            folder.src + "js/pages/demo.dashboard.js",
-            folder.src + "js/pages/demo.britechart.js",
-            folder.src + "js/pages/demo.calendar.js",
-            folder.src + "js/pages/demo.chartjs.js",
-            folder.src + "js/pages/demo.datatable-init.js",
-            folder.src + "js/pages/demo.form-advanced.js",
-            folder.src + "js/pages/demo.form-validation.js",
-            folder.src + "js/pages/demo.form-wizard.js",
-            folder.src + "js/pages/demo.google-maps.js",
-            folder.src + "js/pages/demo.vector-maps.js",
-            folder.src + "js/pages/demo.profile.js",
-            folder.src + "js/pages/demo.toastr.js",
-            folder.src + "js/pages/demo.apex-radialbar.js",
-            folder.src + "js/pages/demo.project-detail.js"
-        ]
-    };
-
-    lodash(app_pages_assets).forEach(function (assets, type) {
-        gulp.src(assets)
-            .pipe(uglify())
-            .on("error", function (err) {
-                gutil.log(gutil.colors.red("[Error]"), err.toString());
-            })
-            .pipe(gulp.dest(out + "pages"));
-    });
+    gulp.src([
+        folder.src + "components/**/*.js"
+    ],{
+        base: '.'
+    })
+        .pipe(uglify())
+        .on("error", function (err) {
+            gutil.log(gutil.colors.red("[Error]"), err.toString());
+        })
+        .pipe(gulp.dest(folder.dist));
 
     // optional components
     var components_assets = {
@@ -253,6 +243,14 @@ gulp.task("javascript", function () {
             .pipe(gulp.dest(out + "ui"));
     });
 
+
+    gulp.src(folder.src + "js/app.js")
+        .pipe(uglify())
+        .on("error", function (err) {
+            gutil.log(gutil.colors.red("[Error]"),err.toString());
+        })
+        .pipe(gulp.dest(out));
+
     // It's important to keep files at this order
     // so that `app.min.js` can be executed properly
     return gulp
@@ -267,14 +265,14 @@ gulp.task("javascript", function () {
             folder.src + "js/vendor/select2.min.js",
             folder.src + "js/vendor/jquery.mask.min.js",
             folder.src + "js/vendor/jquery.bootstrap.wizard.min.js",
-            folder.src + "js/app.js"
+            folder.src + "js/template.js"
         ])
         .pipe(sourcemaps.init())
-        .pipe(concat("app.js"))
+        .pipe(concat("bundle.js"))
         .pipe(gulp.dest(out))
         .pipe(
             rename({
-                // rename app.js to app.min.js
+                // rename template.js to app.min.js
                 suffix: ".min"
             })
         )
@@ -303,7 +301,8 @@ gulp.task("browserSync", function () {
 
 // watch all changes
 gulp.task("watch", function () {
-    gulp.watch(folder.src + "html/**", ["html", browsersync.reload]);
+    gulp.watch(folder.src + "components/**/*.html", ["html", browsersync.reload]);
+    gulp.watch(folder.src + "*.html", ["html", browsersync.reload]);
     gulp.watch(folder.src + "assets/images/**/*", [
         "imageMin",
         browsersync.reload
@@ -311,6 +310,7 @@ gulp.task("watch", function () {
     gulp.watch(folder.src + "assets/fonts/**/*", ["fonts", browsersync.reload]);
     gulp.watch(folder.src + "scss/**/*", ["css", browsersync.reload]);
     gulp.watch(folder.src + "js/**/*", ["javascript", browsersync.reload]);
+    gulp.watch(folder.src + "components/**/*.js", ["javascript", browsersync.reload]);
 });
 
 // default task
